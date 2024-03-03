@@ -1,12 +1,12 @@
 # Assessment
 ## Downloads latest PDF using selenium
 **Website Used**: https://rbi.org.in \
-**To run script using code runner, so follow the steps:** i)  Open terminal or Windows+R and write cmd \
-ii) install node \
-iii) install -g selenium-side-runner \
-iv) **Installing a browser driver:**  For Edge    :  npm install -g edgedriver 
+**To run script using code runner, so follow the steps:** -  Open terminal or Windows+R and write cmd \
+- install node \
+- install -g selenium-side-runner \
+- **Installing a browser driver:**  For Edge    :  npm install -g edgedriver 
               
-v) **type command:** selenium-side-runner /path/to/your-project-name.side 
+- **type command:** selenium-side-runner /path/to/your-project-name.side 
 
 **Using Selenium IDE**:
 - Download this repository.
