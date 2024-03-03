@@ -1,0 +1,174 @@
+{
+  "id": "5930a3fe-2b8c-41e3-b3e3-1947bcbbf6a1",
+  "version": "2.0",
+  "name": "project",
+  "url": "https://rbi.org.in/",
+  "tests": [{
+    "id": "1fcd88ee-c42c-4177-9b6e-799bfa044f25",
+    "name": "Press_Releases_LatestPDFDownload",
+    "commands": [{
+      "id": "5dc164bf-02e6-483d-b806-dbbe0ac2ce4e",
+      "comment": "Open the browser window and navigate to RBI Website.",
+      "command": "open",
+      "target": "https://rbi.org.in/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "081d112c-9858-4320-a55b-703c5622c9d2",
+      "comment": "Set the screen size for your desktop and It also depends on other's machine desktop resolution.",
+      "command": "setWindowSize",
+      "target": "1512x940",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca9f4f9e-bb15-4dc0-89a0-2a49ca416cbb",
+      "comment": "Wait untill the Press Releases is visible.",
+      "command": "waitForElementVisible",
+      "target": "linkText=Press Releases",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "f2887422-5531-4fd3-a3d7-a2d2f3905b81",
+      "comment": "Navigate to Press Releases page.",
+      "command": "click",
+      "target": "linkText=Press Releases",
+      "targets": [
+        ["linkText=Press Releases", "linkText"],
+        ["css=.midmenu > ul > li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Press Releases')]", "xpath:link"],
+        ["xpath=//form[@id='Form1']/nav/div/div/ul/li[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '../Scripts/BS_PressReleaseDisplay.aspx')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Press Releases')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab751a59-9c34-42d6-b48d-b396633bbffe",
+      "comment": "Wait until element button id 2024 is visible.",
+      "command": "waitForElementVisible",
+      "target": "id=btn2024",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "f6ad9278-ae83-4165-b1a9-48f14ffe7c0a",
+      "comment": "Click and navigate to the months in Year-wise calendar.",
+      "command": "click",
+      "target": "id=btn2024",
+      "targets": [
+        ["id=btn2024", "id"],
+        ["css=#btn2024", "css:finder"],
+        ["xpath=//div[@id='btn2024']", "xpath:attributes"],
+        ["xpath=//div[@id='treeYearMonth_PR']/div", "xpath:idRelative"],
+        ["xpath=//span/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0a477380-434c-44ee-bbd2-9431781c3a33",
+      "comment": "Navigate to All Months and Click on it.",
+      "command": "click",
+      "target": "id=20240",
+      "targets": [
+        ["id=20240", "id"],
+        ["linkText=All Months", "linkText"],
+        ["css=#\\32 0240", "css:finder"],
+        ["xpath=//a[contains(text(),'All Months')]", "xpath:link"],
+        ["xpath=//a[@id='20240']", "xpath:attributes"],
+        ["xpath=//div[@id='2024']/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '#')])[8]", "xpath:href"],
+        ["xpath=//div[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'All Months')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5e5afdc-d0ff-4232-894f-85559054b192",
+      "comment": "Wait until latest press release is visible",
+      "command": "waitForElementVisible",
+      "target": "css=tr:nth-child(2)> td:nth-child(1)>a",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "24477bfd-da58-4f16-8f2e-6a37d0d4bd90",
+      "comment": "Store the latest Press Release into a variable.",
+      "command": "storeText",
+      "target": "css=tr:nth-child(2)> td:nth-child(1)>a",
+      "targets": [],
+      "value": "latestPressRelease"
+    }, {
+      "id": "7767483c-9995-413a-b0c9-13ab14688480",
+      "comment": " using script",
+      "command": "executeScript",
+      "target": "document.querySelector(\"tr:nth-child(2) > td:nth-child(1) > a\").removeAttribute(\"target\");",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01eda99f-0f6f-4c9e-8edb-4d8fb7a96252",
+      "comment": " navigate to new lastest link.",
+      "command": "click",
+      "target": "css=tr:nth-child(2)> td:nth-child(1)>a",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eab9d4c3-acf4-4fef-874c-10c80eb98f88",
+      "comment": "Verify or check and Navigate the latest press release page.",
+      "command": "assertText",
+      "target": "xpath=/html[1]/body[1]/form[1]/div[5]/div[1]/div[3]/div[1]/div[1]/div[1]/table[2]/tbody[1]/tr[3]/td[1]/b[1]",
+      "targets": [],
+      "value": "${latestPressRelease}"
+    }, {
+      "id": "82f9f509-7f73-44a4-bb97-2f4883c9d791",
+      "comment": "Click the icon and Download",
+      "command": "click",
+      "target": "css=.tableheader img",
+      "targets": [],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win9578",
+      "windowTimeout": 2000
+    }, {
+      "id": "f9b610b2-62e6-4720-8a3c-e9c4bba598c7",
+      "comment": "Execute Script",
+      "command": "executeScript",
+      "target": "setTimeout(function(){window.location.reload(1);}, 10000);",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0a6536b7-112f-4ec0-afd8-6989bb47c228",
+      "comment": "Downloaded message.",
+      "command": "echo",
+      "target": "Latest PDF Downloaded Successfully....",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01136401-ab85-449f-b024-11b2de145ade",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win9578}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "858f6955-8705-404f-84d1-355ccef04fc7",
+      "comment": "Pause for 10sec.",
+      "command": "pause",
+      "target": "10000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "886eb1e3-2605-4529-a24e-9ab054a10362",
+      "comment": "Close the browser window.",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "549fcc82-940c-4150-a63f-5ceed660baa5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1fcd88ee-c42c-4177-9b6e-799bfa044f25"]
+  }],
+  "urls": ["https://rbi.org.in/"],
+  "plugins": []
+}
